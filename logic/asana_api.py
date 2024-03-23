@@ -12,7 +12,7 @@ class AsanaApiRequests:
     url = 'https://app.asana.com/api/1.0/projects'
     headers = {
         "Accept": "application/json",
-        "Authorization": "Bearer 2/1206875539694934/1206876120648733:cc820a375a52d040190ba8d7eb8cb45e"}
+        "Authorization": }
 
     def __init__(self, api_object):
         self.my_api = api_object
