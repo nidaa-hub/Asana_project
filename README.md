@@ -54,10 +54,10 @@ This automation test suite aims to thoroughly test the functionalities of the As
 ### TestRail:
 - Utilize TestRail for effective test case management and scenario documentation.
 
-## GitHub Actions and Jenkins:
+### GitHub Actions and Jenkins:
 - Integrate GitHub Actions or Jenkins for automated test execution upon code commits, ensuring continuous testing integration.
 
-## Docker Integration with Jenkins:
+### Docker Integration with Jenkins:
 - Configure Jenkins to connect to Docker for running the project in a local environment. Utilize Docker containers to encapsulate the testing environment, ensuring consistency and reproducibility across different machines. This setup enables easy setup and teardown of testing environments and enhances portability of the testing infrastructure.  
   
 ## Bug Tracking:
