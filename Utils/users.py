@@ -11,3 +11,4 @@ def get_valid_user(name):
 
 def get_all_valid_users():
     return valid_users
+

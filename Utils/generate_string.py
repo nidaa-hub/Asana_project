@@ -35,3 +35,4 @@ def generate_text(length=6):
 
     # Convert the list to a string and return
     return ''.join(password)
+
