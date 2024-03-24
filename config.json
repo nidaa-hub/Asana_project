@@ -1,0 +1,14 @@
+{
+  "hub": "http://172.20.10.4:4444",
+  "url": "https://app.asana.com/-/login",
+  "grid": false,
+  "parallel": false,
+  "serial": false,
+  "browser": "chrome",
+  "platform": "windows",
+  "browser_types": [
+    "chrome",
+    "firefox",
+    "edge"
+  ]
+}
