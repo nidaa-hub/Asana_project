@@ -1,7 +1,7 @@
 import unittest
 
 from infra.api_wrapper import APIWrapper
-from logic.asana_api import AsanaApiRequests
+from logic.API_logic.asana_api import AsanaApiRequests
 
 
 class MainTest(unittest.TestCase):
@@ -12,6 +12,7 @@ class MainTest(unittest.TestCase):
 
     def test_get_the_project_in_asana_website(self):
         result = self.api_logic.get_a_project_asana_website()
+        task_name = self.api_logic.get_asana_task_name_by_api()
    #     assert result, f"Failed to open the link: {'https://apod.nasa.gov/apod/image/2403/2024_03_05_Pons-Brooks_Revuca_1200px.png'}"
 
 

@@ -5,3 +5,6 @@ class BasePage:
 
     def get_page_title(self):
         return self._driver.title
+
+    def get_url(self):
+        return self._driver.current_url

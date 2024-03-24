@@ -1,10 +1,8 @@
-import webbrowser
-
 from infra.api_wrapper import APIWrapper
 from Utils import users
-import asana
-import json
 import requests
+import asana
+from asana.rest import ApiException
 
 
 class AsanaApiRequests:
@@ -12,12 +10,17 @@ class AsanaApiRequests:
     url = 'https://app.asana.com/api/1.0/projects'
 
     def __init__(self, api_object):
-        self.ApiKey= users.apiKey
+        self.token = users.token
+        self.ApiKey = users.apiKey
         self.my_api = api_object
         self.my_api = APIWrapper()
         self.headers = {
             "Accept": "application/json",
             "Authorization": self.ApiKey}
+        configuration = asana.Configuration()
+        configuration.access_token = self.token
+        self.api_client = asana.ApiClient(configuration)
+
 
     def get_a_project_asana_website(self):
        # client = asana.Client.access_token(self.APIKEY)
@@ -28,10 +31,10 @@ class AsanaApiRequests:
         print(project_name)
         return result
 
-  #  def get_image_of_the_day_url(self):
-  #      image = self.planetary_apod_api()
-  #      image_url = image["url"]
-  #      webbrowser.open(image_url)
-  #     return image_url
+    def get_asana_task_name_by_api(self):
+        project_gid = '1206876108607935'
+        tasks = self.api_client.tasks.find_by_project(project_gid)
+        print(tasks['name'])
+
 
 

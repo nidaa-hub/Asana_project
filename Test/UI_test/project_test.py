@@ -2,21 +2,16 @@ import time
 import unittest
 
 from infra.browser_wrapper import BrowserWrapper
-from logic.projects_page import ProjectsPage
-from logic.login_page import LogInPage
-from logic.password_page import PasswordPage
+from logic.UI_logic.projects_page import ProjectsPage
+from logic.UI_logic.login_page import LogInPage
+from logic.UI_logic.password_page import PasswordPage
 
 
 class Asana_Page_Test(unittest.TestCase):
     def setUp(self):
         self.browser = BrowserWrapper()
         self.driver = self.browser.get_driver("https://app.asana.com/-/login")
-        self.login_asana = LogInPage(self.driver)
-        self.login_asana.email_flow("gethelpproject2021@gmail.com")
-        time.sleep(3)
-        self.password_asana = PasswordPage(self.driver)
-        self.password_asana.password_flow_for_asana_website("gethelp24")
-        time.sleep(3)
+
 
     def tearDown(self):
         self.driver.quit()

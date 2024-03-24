@@ -3,6 +3,8 @@ valid_users = [
 
 apiKey = "Bearer 2/1206875539694934/1206876120648733:cc820a375a52d040190ba8d7eb8cb45e"
 
+token = "2/1206875539694934/1206876120648733:cc820a375a52d040190ba8d7eb8cb45e"
+
 
 def get_valid_user(name):
     try:

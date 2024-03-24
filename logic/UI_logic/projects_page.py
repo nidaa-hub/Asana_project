@@ -5,11 +5,14 @@ from infra.base_page import BasePage
 
 class ProjectsPage(BasePage):
 
-    SIDEBAR_BUTTON = '//div[@aria-label="Hide sidebar"]'
+    CREATE_PROJECT = (By.XPATH, '//span[text()="Project"]')
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.sidebar_button = self._driver.find_element(By.XPATH, self.SIADEBAR_BUTTON)
+        self.project_button = self._driver.find_element(By.XPATH, self.CREATE_PROJECT)
 
-    def click_on_sidebar_button(self):
-        self.sidebar_button.click()
+  #  def click_on_sidebar_button(self):
+ #       self.sidebar_button.click()
+
+    def click_on_create_new_project_button(self):
+        self.project_button.click()
