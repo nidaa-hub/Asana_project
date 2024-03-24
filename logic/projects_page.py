@@ -5,7 +5,7 @@ from infra.base_page import BasePage
 
 class ProjectsPage(BasePage):
 
-    SIDEBAR_BUTTON = '//div[@aria-label="Expand sidebar"]'
+    SIDEBAR_BUTTON = '//div[@aria-label="Hide sidebar"]'
 
     def __init__(self, driver):
         super().__init__(driver)

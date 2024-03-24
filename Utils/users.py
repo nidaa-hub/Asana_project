@@ -6,7 +6,7 @@ def get_valid_user(name):
     try:
         return next(user for user in valid_users if user["name"] == name)
     except:
-        print("\n     User %s is not defined, enter a valid user.\n" % name)
+        print("\n User %s is not defined, enter a valid user.\n" % name)
 
 
 def get_all_valid_users():

@@ -3,7 +3,7 @@ import unittest
 
 from selenium.webdriver.common.by import By
 from infra.browser_wrapper import BrowserWrapper
-from logic.home_page import HomePage
+from logic.projects_page import ProjectsPage
 from logic.login_page import LogInPage
 from logic.password_page import PasswordPage
 
@@ -24,18 +24,5 @@ class Asana_Page_Test(unittest.TestCase):
 
     def test_check_create_button(self):
         time.sleep(10)
-        self.asana_home_page = HomePage(self.driver)
-        self.asana_home_page.click_on_create_button()
-        
-
-
-
-
-
-
-
-
-
-
-
-
+        self.asana_projects_page = ProjectsPage(self.driver)
+     #   self.asana_projects_page.click_on_sidebar_button()
