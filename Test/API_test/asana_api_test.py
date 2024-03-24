@@ -1,7 +1,5 @@
 import unittest
 
-import requests
-
 from infra.api_wrapper import APIWrapper
 from logic.asana_api import AsanaApiRequests
 

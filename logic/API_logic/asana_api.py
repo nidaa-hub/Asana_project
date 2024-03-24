@@ -1,6 +1,7 @@
 import webbrowser
 
 from infra.api_wrapper import APIWrapper
+from Utils import users
 import asana
 import json
 import requests
@@ -8,15 +9,15 @@ import requests
 
 class AsanaApiRequests:
 
-    
     url = 'https://app.asana.com/api/1.0/projects'
-    headers = {
-        "Accept": "application/json",
-        "Authorization": }
 
     def __init__(self, api_object):
+        self.ApiKey= users.apiKey
         self.my_api = api_object
         self.my_api = APIWrapper()
+        self.headers = {
+            "Accept": "application/json",
+            "Authorization": self.ApiKey}
 
     def get_a_project_asana_website(self):
        # client = asana.Client.access_token(self.APIKEY)

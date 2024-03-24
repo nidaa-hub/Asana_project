@@ -1,7 +1,6 @@
 import time
 import unittest
 
-from selenium.webdriver.common.by import By
 from infra.browser_wrapper import BrowserWrapper
 from logic.projects_page import ProjectsPage
 from logic.login_page import LogInPage

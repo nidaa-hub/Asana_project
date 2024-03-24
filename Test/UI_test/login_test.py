@@ -3,11 +3,10 @@ import unittest
 from Utils import users
 from infra.config_loader import ConfigLoader
 
-from selenium.webdriver.common.by import By
 from infra.browser_wrapper import BrowserWrapper
-from logic.home_page import HomePage
-from logic.login_page import LogInPage
-from logic.password_page import PasswordPage
+from logic.UI_logic.home_page import HomePage
+from logic.UI_logic.login_page import LogInPage
+from logic.UI_logic.password_page import PasswordPage
 
 
 class Asana_Page_Test(unittest.TestCase):
