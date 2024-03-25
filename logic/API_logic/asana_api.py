@@ -12,7 +12,7 @@ class AsanaApiRequests:
     def __init__(self, api_object):
         self.token = users.token
         self.ApiKey = users.apiKey
-        self.my_api = api_object
+       # self.my_api = api_object
         self.my_api = APIWrapper()
         self.headers = {
             "Accept": "application/json",
