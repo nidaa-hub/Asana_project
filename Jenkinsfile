@@ -11,14 +11,14 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Install any required dependencies using pip
-                sh 'pip install -r requirements.txt' // Assuming you have a requirements.txt file
+                bat 'pip install -r requirements.txt' // Assuming you have a requirements.txt file
             }
         }
 
         stage('Run Tests') {
             steps {
                 // Run your Python test script
-                sh 'python Test.UI_test.non_functional_test.py' // Modify this command according to how you run your tests
+                bat 'python Test.UI_test.non_functional_test.py' // Modify this command according to how you run your tests
             }
         }
     }
