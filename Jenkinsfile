@@ -3,22 +3,20 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                // Checkout your source code from version control
+                echo 'Building..'
                 git 'https://github.com/nidaa-hub/Asana_project.git'
             }
         }
-
         stage('Install Dependencies') {
             steps {
-                // Install any required dependencies using pip
-                sh 'pip install -r requirements.txt' // Use sh instead of bat
+                echo 'Testing..'
+                bat 'pip install -r requirements.txt'
             }
         }
-
         stage('Run Tests') {
             steps {
-                // Run your Python test script
-                sh 'python Test.UI_test.non_functional_test.py' // Use sh instead of bat
+                echo 'Deploying..'
+                bat 'python Test.UI_test.non_functional_test.py'
             }
         }
     }
@@ -32,4 +30,5 @@ pipeline {
             slackSend(channel: "#asana_jenkins_update", failOnError: true, message: "Build failed - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)")
         }
     }
+
 }
