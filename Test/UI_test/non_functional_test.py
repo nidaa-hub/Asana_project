@@ -1,12 +1,12 @@
 import time
 import unittest
 from Utils.read_from_env import Credentials
+from Utils.asana_login import AsanaLogin
 from Infra.browser_wrapper import BrowserWrapper
 from Logic.UI_logic.display_page import DisplayPage
 from Logic.UI_logic.home_page import HomePage
-from Logic.UI_logic.login_page import LogInPage
-from Logic.UI_logic.password_page import PasswordPage
 from Logic.UI_logic.setting_page import SettingPage
+
 
 
 class Asana_non_functional_Test(unittest.TestCase):
@@ -14,12 +14,8 @@ class Asana_non_functional_Test(unittest.TestCase):
         self.data = Credentials()
         self.browser = BrowserWrapper()
         self.driver = self.browser.get_driver()
-        self.login_asana = LogInPage(self.driver)
-        self.login_asana.email_flow(self.data.get_email())
-        time.sleep(2)
-        self.password_asana = PasswordPage(self.driver)
-        self.password_asana.password_flow_for_asana_website(self.data.get_password())
-        time.sleep(5)
+        self.login = AsanaLogin(self.driver)
+        self.login.asana_login_with_email()
         self.asana_home_page = HomePage(self.driver)
 
     def tearDown(self):
