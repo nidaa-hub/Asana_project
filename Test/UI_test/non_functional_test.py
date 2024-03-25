@@ -1,13 +1,13 @@
 import time
 import unittest
 from Utils.read_from_env import Credentials
-from infra.config_loader import ConfigLoader
-from infra.browser_wrapper import BrowserWrapper
-from logic.UI_logic.display_page import DisplayPage
-from logic.UI_logic.home_page import HomePage
-from logic.UI_logic.login_page import LogInPage
-from logic.UI_logic.password_page import PasswordPage
-from logic.UI_logic.setting_page import SettingPage
+from Infra.config_loader import ConfigLoader
+from Infra.browser_wrapper import BrowserWrapper
+from Logic.UI_logic.display_page import DisplayPage
+from Logic.UI_logic.home_page import HomePage
+from Logic.UI_logic.login_page import LogInPage
+from Logic.UI_logic.password_page import PasswordPage
+from Logic.UI_logic.setting_page import SettingPage
 
 
 class Asana_non_functional_Test(unittest.TestCase):
@@ -16,7 +16,7 @@ class Asana_non_functional_Test(unittest.TestCase):
         config_loader = ConfigLoader()
         config = config_loader.load_config()
         self.browser = BrowserWrapper()
-        self.driver = self.browser.get_driver(config["url"])
+        self.driver = self.browser.get_driver()
         self.login_asana = LogInPage(self.driver)
         self.login_asana.email_flow(self.data.get_email())
         time.sleep(2)

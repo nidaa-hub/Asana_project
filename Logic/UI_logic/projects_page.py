@@ -1,6 +1,6 @@
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-from infra.base_page import BasePage
+from Infra.base_page import BasePage
 
 
 class ProjectsPage(BasePage):

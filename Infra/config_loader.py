@@ -1,7 +1,5 @@
 import json
-
 from os.path import dirname, join
-
 
 class ConfigLoader:
     def get_file_name(self, filename):

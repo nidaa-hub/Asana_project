@@ -1,7 +1,7 @@
 import unittest
 
-from infra.api_wrapper import APIWrapper
-from logic.API_logic.asana_api import AsanaApiRequests
+from Infra.api_wrapper import APIWrapper
+from Logic.API_logic.asana_api import AsanaApiRequests
 
 
 class MainTest(unittest.TestCase):

@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from infra.base_page import BasePage
+from Infra.base_page import BasePage
 
 
 class BoardPage(BasePage):

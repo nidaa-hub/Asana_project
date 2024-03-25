@@ -3,7 +3,7 @@
   "url": "https://app.asana.com/-/login",
   "grid": false,
   "parallel": false,
-  "serial": false,
+  "serial": true,
   "browser": "chrome",
   "platform": "windows",
   "browser_types": [

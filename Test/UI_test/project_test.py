@@ -1,10 +1,10 @@
 import time
 import unittest
 
-from infra.browser_wrapper import BrowserWrapper
-from logic.UI_logic.projects_page import ProjectsPage
-from logic.UI_logic.login_page import LogInPage
-from logic.UI_logic.password_page import PasswordPage
+from Infra.browser_wrapper import BrowserWrapper
+from Logic.UI_logic.projects_page import ProjectsPage
+from Logic.UI_logic.login_page import LogInPage
+from Logic.UI_logic.password_page import PasswordPage
 
 
 class Asana_Page_Test(unittest.TestCase):

@@ -1,4 +1,4 @@
-from infra.api_wrapper import APIWrapper
+from Infra.api_wrapper import APIWrapper
 from Utils import users
 import requests
 import asana
