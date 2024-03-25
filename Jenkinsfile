@@ -1,19 +1,19 @@
 pipeline {
     agent any
-    stages {
-        stage('Build') {
+    Stages {
+        Stage('Build') {
             steps {
                 echo 'Building..'
                 git 'https://github.com/nidaa-hub/Asana_project.git'
             }
         }
-        stage('Test') {
+        Stage('Test') {
             steps {
                 echo 'Testing..'
                 bat 'pip install -r requirements.txt'
             }
         }
-        stage('Deploy') {
+        Stage('Deploy') {
             steps {
                 echo 'Deploying..'
                 bat 'python Test.UI_test.non_functional_test.py'
