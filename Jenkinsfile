@@ -18,7 +18,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // Run your Python test script
-                sh 'python Test.login_test.py' // Modify this command according to how you run your tests
+                sh 'python Test.UI_test.non_functional_test.py' // Modify this command according to how you run your tests
             }
         }
     }
