@@ -1,5 +1,5 @@
 from Infra.api_wrapper import APIWrapper
-from Utils import users
+from Utils.read_from_env import Credentials
 import requests
 import asana
 from asana.rest import ApiException
@@ -10,9 +10,9 @@ class AsanaApiRequests:
     url = 'https://app.asana.com/api/1.0/projects'
 
     def __init__(self, api_object):
-        self.token = users.token
-        self.ApiKey = users.apiKey
-       # self.my_api = api_object
+        self.data = Credentials()
+        self.token = self.data.get_token()
+        self.ApiKey = self.data.get_apikey()
         self.my_api = APIWrapper()
         self.headers = {
             "Accept": "application/json",

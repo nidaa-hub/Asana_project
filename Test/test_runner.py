@@ -1,7 +1,7 @@
 from typing import Type
 import unittest
 from concurrent.futures import ThreadPoolExecutor
-from Infra.config_loader import ConfigLoader
+from Utils.config_loader import ConfigLoader
 from Test.UI_test.non_functional_test import Asana_non_functional_Test
 
 

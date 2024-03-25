@@ -1,5 +1,5 @@
 from selenium import webdriver
-from Infra.config_loader import ConfigLoader
+from Utils.config_loader import ConfigLoader
 
 class BrowserWrapper:
 
