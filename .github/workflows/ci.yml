@@ -38,4 +38,3 @@ jobs:
           steps: ${{ toJson(steps) }}
           channel: '#asana_github_update'
         if: always()
-
