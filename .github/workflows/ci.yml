@@ -33,7 +33,6 @@ jobs:
       - name: Secret login
         env:
            SECRET: ${{ secrets.EMAIL }}
-        run: python raed_from_env.py
 
       - name: Send Slack Notification on Success
         if: ${{ success() }}
