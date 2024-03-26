@@ -52,7 +52,7 @@ jobs:
       - name: Run tests
         continue-on-error: true
         run: |
-          python -m pytest  tests_runner.py --html=report_api.html --self-contained-html
+          python tests_runner.py
 
       - name: Upload Test Report
         uses: actions/upload-artifact@v2
