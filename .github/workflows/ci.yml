@@ -39,7 +39,7 @@ jobs:
         with:
           status: 'passed'
           message: 'Tests passed successfully!'
-          channel: 'your-slack-channel'
+          channel: 'asana_github_update'
 
       - name: Send Slack Notification on Failure
         if: ${{ failure() }}
@@ -47,5 +47,5 @@ jobs:
         with:
           status: 'failed'
           message: 'Tests failed!'
-          channel: 'your-slack-channel'
+          channel: 'asana_github_update'
 
