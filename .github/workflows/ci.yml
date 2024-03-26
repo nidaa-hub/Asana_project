@@ -30,10 +30,10 @@ jobs:
       - name: Check Chrome version
         run: google-chrome --version
 
-      - name: Secret login
+   '''   - name: Secret login
         env:
            SECRET: ${{ secrets.SECRET }}
-        run: python Utils/github_secret.py
+        run: python Utils/github_secret.py'''
 
       - name: Send Slack Notification on Success
         if: ${{ success() }}
