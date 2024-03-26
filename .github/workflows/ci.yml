@@ -32,8 +32,8 @@ jobs:
 
       - name: Secret login
         env:
-           SECRET: ${{ secrets.SECRET }}
-        run: python Utils/github_secret.py
+           SECRET: ${{ secrets.EMAIL }}
+        run: python Utils/raed_from_env.py
 
       - name: Send Slack Notification on Success
         if: ${{ success() }}
@@ -50,5 +50,4 @@ jobs:
           status: 'failed'
           message: 'Tests failed!'
           channel: 'your-slack-channel'
-
 
