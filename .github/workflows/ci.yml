@@ -8,7 +8,7 @@ jobs:
     env:
       EMAIL: ${{ secrets.EMAIL }}
       PASSWORD: ${{ secrets.PASSWORD }}
-      WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
       APIKEY : ${{ secrets.APIKEYL }}
       TOKEN: ${{ secrets.TOKEN }}
       JIRA_TOKEN: ${{ secrets.JIRA_TOKEN}}
