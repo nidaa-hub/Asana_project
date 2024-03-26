@@ -22,7 +22,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run Tests
-        run: python Test.UI_test.non_functional_test.py
+        run: python Test/UI_test/non_functional_test.py
 
       - name: Send Slack Notification on Success
         if: ${{ success() }}

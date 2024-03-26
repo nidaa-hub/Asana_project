@@ -3,7 +3,6 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from Infra.base_page import BasePage
 
-
 class ProjectsPage(BasePage):
 
     OPEN_PROJECT = '//h2[text()="Projects"]'
