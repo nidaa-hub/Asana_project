@@ -4,17 +4,18 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-
 class Credentials:
 
     def get_email(self):
-        email = os.getenv("EMAIL")
+    #    email = os.getenv("EMAIL")
+        email = os.environ["EMAIL"]
         if email is None:
             raise ValueError("EMAIL_TXT environment variable is not set")
         return email
 
     def get_password(self):
-        password = os.getenv("PASSWORD")
+      #  password = os.getenv("PASSWORD")
+        password = os.environ["PASSWORD"]
         if password is None:
             raise ValueError("PASSWORD environment variable is not set")
         return password

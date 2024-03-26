@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+env:
+  email: ${{ secrets.EMAIL }}
+  password: ${{ secrets.PASSWORD }}
 
 jobs:
   build:
@@ -29,10 +32,6 @@ jobs:
 
       - name: Check Chrome version
         run: google-chrome --version
-
-      - name: Secret login
-        env:
-           SECRET: ${{ secrets.EMAIL }}
 
       - name: Send Slack Notification on Success
         if: ${{ success() }}

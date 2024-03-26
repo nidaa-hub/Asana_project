@@ -2,7 +2,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from Infra.base_page import BasePage
 
-from read_from_env import Credentials
+from Utils.read_from_env import Credentials
 
 class LogInPage(BasePage):
 

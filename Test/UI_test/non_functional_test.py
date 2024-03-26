@@ -1,6 +1,6 @@
 import time
 import unittest
-from read_from_env import Credentials
+from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from Infra.browser_wrapper import BrowserWrapper
 from Logic.UI_logic.display_page import DisplayPage

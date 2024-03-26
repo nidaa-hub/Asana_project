@@ -1,5 +1,5 @@
 from Infra.api_wrapper import APIWrapper
-from read_from_env import Credentials
+from Utils.read_from_env import Credentials
 import requests
 import asana
 
