@@ -1,8 +1,7 @@
 from Infra.api_wrapper import APIWrapper
-from Utils.read_from_env import Credentials
+from read_from_env import Credentials
 import requests
 import asana
-from asana.rest import ApiException
 
 
 class AsanaApiRequests:

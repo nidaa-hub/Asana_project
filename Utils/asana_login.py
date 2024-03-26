@@ -1,6 +1,4 @@
 import time
-from Utils.read_from_env import Credentials
-from Infra.browser_wrapper import BrowserWrapper
 from Logic.UI_logic.login_page import LogInPage
 from Logic.UI_logic.password_page import PasswordPage
 

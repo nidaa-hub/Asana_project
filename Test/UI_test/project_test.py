@@ -2,8 +2,7 @@ import time
 import unittest
 
 from Logic.UI_logic.home_page import HomePage
-from Logic.UI_logic.setting_page import SettingPage
-from Utils.read_from_env import Credentials
+from read_from_env import Credentials
 from Infra.browser_wrapper import BrowserWrapper
 from Logic.UI_logic.projects_page import ProjectsPage
 from Utils.asana_login import AsanaLogin
