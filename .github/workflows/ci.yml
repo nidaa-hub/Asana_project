@@ -1,17 +1,14 @@
 name: Continuous Integration
 
-on:
-  push:
-    branches:
-      - main
-  env:
-    EMAIL: ${{ secrets.EMAIL }}
-    PASSWORD: ${{ secrets.PASSWORD }}
-    WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
-
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest  # Use the latest Ubuntu environment
+
+    env:
+      EMAIL: ${{ secrets.EMAIL }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
 
     steps:
       - name: Checkout Repository
