@@ -1,3 +1,4 @@
+from selenium.common import TimeoutException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -16,7 +17,6 @@ class DisplayPage(BasePage):
         super().__init__(driver)
         self.display = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.DISPLAY)))
         self.theme = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.THEME)))
-        self.dark_mode = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.DARK_MODE)))
         self.Language = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.LANGUAGE)))
         self.spanish = None
 
@@ -25,6 +25,7 @@ class DisplayPage(BasePage):
 
     def click_on_theme_button(self):
         self.theme.click()
+        self.dark_mode = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.DARK_MODE)))
 
     def click_on_dark_mode(self):
         self.dark_mode.click()
@@ -32,7 +33,7 @@ class DisplayPage(BasePage):
     def change_to_dark_mode(self):
         self.click_on_display_button()
         self.click_on_theme_button()
-        self.click_on_dark_mode()
+        return self.click_on_dark_mode()
 
     def click_on_language_website(self):
         self.Language.click()
@@ -44,6 +45,4 @@ class DisplayPage(BasePage):
     def change_to_spanish_language(self):
         self.click_on_language_website()
         self.choose_spanish_language()
-
-
 

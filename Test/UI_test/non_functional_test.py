@@ -1,5 +1,7 @@
 import time
 import unittest
+
+from Jirafile import JiraReport
 from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from Infra.browser_wrapper import BrowserWrapper
@@ -20,6 +22,16 @@ class Asana_non_functional_Test(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+        if hasattr(self, 'assertion_passed') and self.assertion_passed:
+            try:
+                # Assertion passed, report bug to Jira
+                jira_report = JiraReport()
+                issue_summary = "Test Assertion Failure"
+                issue_description = "Test failed due to assertion failure in non_functional_test"
+                jira_report.create_issue(issue_summary, issue_description)
+                print("Issue Created")
+            except Exception as e:
+                print("Failed to report bug to Jira:", str(e))
 
     def test_change_to_dark_mode(self):
         self.asana_home_page.click_on_profile_icon()
@@ -28,8 +40,8 @@ class Asana_non_functional_Test(unittest.TestCase):
         self.asana_setting_page.click_on_setting_button()
         time.sleep(3)
         self.asana_display = DisplayPage(self.driver)
-        self.asana_display.change_to_dark_mode()
-        #assert
+        self.check_mode = self.asana_display.change_to_dark_mode()
+        self.assertTrue(self.check_mode, "dont change to dark mode")
 
     def test_change_website_language(self):
         self.asana_home_page.click_on_profile_icon()
