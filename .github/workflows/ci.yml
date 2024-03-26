@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
-env:
-  email: ${{ secrets.EMAIL }}
-  password: ${{ secrets.PASSWORD }}
+  env:
+    EMAIL: ${{ secrets.EMAIL }}
+    PASSWORD: ${{ secrets.PASSWORD }}
+    WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
 
 jobs:
   build:
@@ -33,19 +34,11 @@ jobs:
       - name: Check Chrome version
         run: google-chrome --version
 
-      - name: Send Slack Notification on Success
-        if: ${{ success() }}
-        uses: rtCamp/action-slack-notify@v2
+      - name: Slack Notification
+        uses: act10ns/slack@v1
         with:
-          status: 'passed'
-          message: 'Tests passed successfully!'
-          channel: 'asana_github_update'
-
-      - name: Send Slack Notification on Failure
-        if: ${{ failure() }}
-        uses: rtCamp/action-slack-notify@v2
-        with:
-          status: 'failed'
-          message: 'Tests failed!'
-          channel: 'asana_github_update'
+          status: ${{ job.status }}
+          steps: ${{ toJson(steps) }}
+          channel: '#github_actions'
+        if: always()
 
