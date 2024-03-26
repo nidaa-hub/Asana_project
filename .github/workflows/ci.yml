@@ -1,15 +1,42 @@
-name: CI_file
+name: Continuous Integration
+
 on:
   push:
     branches:
       - main
+
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v2  # Action to checkout the repository
 
-    - name: echo hello world
-      run: echo hello world
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9  # Specify the Python version you want to use
+
+      - name: Install Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Tests
+        run: python Test.UI_test.non_functional_test.py
+
+      - name: Send Slack Notification on Success
+        if: ${{ success() }}
+        uses: rtCamp/action-slack-notify@v2
+        with:
+          status: 'passed'
+          message: 'Tests passed successfully!'
+          channel: 'your-slack-channel'
+
+      - name: Send Slack Notification on Failure
+        if: ${{ failure() }}
+        uses: rtCamp/action-slack-notify@v2
+        with:
+          status: 'failed'
+          message: 'Tests failed!'
+          channel: 'your-slack-channel'
+

@@ -1,18 +1,21 @@
-from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from Infra.base_page import BasePage
 
 
 class ProjectsPage(BasePage):
 
-    CREATE_PROJECT = (By.XPATH, '//span[text()="Project"]')
+    OPEN_PROJECT = '//h2[text()="Projects"]'
+    PROJECT = '//a[@aria-label="CI/CD project, Project"]'
 
     def __init__(self, driver):
         super().__init__(driver)
-        self.project_button = self._driver.find_element(By.XPATH, self.CREATE_PROJECT)
+        self.open_project = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.OPEN_PROJECT)))
+        self.project = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.PROJECT)))
 
-  #  def click_on_sidebar_button(self):
- #       self.sidebar_button.click()
+    def click_on_open_project_button(self):
+        self.open_project.click()
 
-    def click_on_create_new_project_button(self):
-        self.project_button.click()
+    def click_on_project_button(self):
+        self.project.click()

@@ -8,7 +8,6 @@ from Logic.UI_logic.home_page import HomePage
 from Logic.UI_logic.setting_page import SettingPage
 
 
-
 class Asana_non_functional_Test(unittest.TestCase):
     def setUp(self):
         self.data = Credentials()
@@ -16,6 +15,7 @@ class Asana_non_functional_Test(unittest.TestCase):
         self.driver = self.browser.get_driver()
         self.login = AsanaLogin(self.driver)
         self.login.asana_login_with_email()
+        time.sleep(5)
         self.asana_home_page = HomePage(self.driver)
 
     def tearDown(self):
