@@ -24,6 +24,7 @@ class JiraReport:
 
 '''
         if hasattr(self, 'assertion_passed') and self.assertion_passed:
+        if hasattr(self, '_outcome') and self._outcome.errors:
             try:
                 # Assertion passed, report bug to Jira
                 jira_report = JiraReport()

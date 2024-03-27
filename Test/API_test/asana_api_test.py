@@ -8,12 +8,15 @@ class MainTest(unittest.TestCase):
 
     def setUp(self) -> None:
         self.my_api = APIWrapper()
-        self.api_logic = AsanaApiRequests(self.my_api)
+        self.api_logic = AsanaApiRequests()
 
     def test_get_the_project_in_asana_website(self):
-        result = self.api_logic.get_asana_task_name_by_api()
-    #    task_name = self.api_logic.get_asana_task_name_by_api()
-   #     assert result, f"Failed to open the link: {'https://apod.nasa.gov/apod/image/2403/2024_03_05_Pons-Brooks_Revuca_1200px.png'}"
+        self.api_logic.get_project_names()
+
+    def test_get_specific_task_in_a_project(self):
+        self.api_logic.get_asana_task_name_by_api()
+
+
 
 
 
