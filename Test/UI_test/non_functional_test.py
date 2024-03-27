@@ -38,20 +38,22 @@ class Asana_non_functional_Test(unittest.TestCase):
         time.sleep(5)
         self.asana_setting_page = SettingPage(self.driver)
         self.asana_setting_page.click_on_setting_button()
-        time.sleep(3)
+        time.sleep(5)
         self.asana_display = DisplayPage(self.driver)
-        self.check_mode = self.asana_display.change_to_dark_mode()
-        self.assertTrue(self.check_mode, "dont change to dark mode")
+        self.asana_display.change_to_dark_mode()
+        self.check_mode = self.asana_display.dark_mode_is_displayed()
+        self.assertTrue(self.check_mode, "the mode is Light")
 
     def test_change_website_language(self):
         self.asana_home_page.click_on_profile_icon()
         time.sleep(5)
         self.asana_setting_page = SettingPage(self.driver)
         self.asana_setting_page.click_on_setting_button()
-        time.sleep(3)
+        time.sleep(5)
         self.asana_display = DisplayPage(self.driver)
         self.asana_display.change_to_spanish_language()
-        #assert
+       # self.assertTrue(self.check_language)
+
 
 
 

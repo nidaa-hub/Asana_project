@@ -17,7 +17,7 @@ class DisplayPage(BasePage):
         super().__init__(driver)
         self.display = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.DISPLAY)))
         self.theme = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.THEME)))
-        self.Language = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.LANGUAGE)))
+        self.Language = WebDriverWait(self._driver, 20).until(EC.presence_of_element_located((By.XPATH, self.LANGUAGE)))
         self.spanish = None
 
     def click_on_display_button(self):
@@ -33,7 +33,10 @@ class DisplayPage(BasePage):
     def change_to_dark_mode(self):
         self.click_on_display_button()
         self.click_on_theme_button()
-        return self.click_on_dark_mode()
+        self.click_on_dark_mode()
+
+    def dark_mode_is_displayed(self):
+        return self.dark_mode
 
     def click_on_language_website(self):
         self.Language.click()
@@ -44,5 +47,5 @@ class DisplayPage(BasePage):
 
     def change_to_spanish_language(self):
         self.click_on_language_website()
-        self.choose_spanish_language()
+        return self.choose_spanish_language()
 
