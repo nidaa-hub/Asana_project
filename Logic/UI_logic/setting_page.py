@@ -15,9 +15,3 @@ class SettingPage(BasePage):
     def click_on_setting_button(self):
         self.setting.click()
 
-
-
-
-
-
-

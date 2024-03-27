@@ -47,5 +47,8 @@ class DisplayPage(BasePage):
 
     def change_to_spanish_language(self):
         self.click_on_language_website()
-        return self.choose_spanish_language()
+        self.choose_spanish_language()
+
+    def spanish_language_is_displayed(self):
+        return self.spanish()
 

@@ -1,7 +1,7 @@
 import time
 import unittest
 
-from Jirafile import JiraReport
+from jirafile import JiraReport
 from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from Infra.browser_wrapper import BrowserWrapper
@@ -35,10 +35,10 @@ class Asana_non_functional_Test(unittest.TestCase):
 
     def test_change_to_dark_mode(self):
         self.asana_home_page.click_on_profile_icon()
-        time.sleep(5)
+        time.sleep(7)
         self.asana_setting_page = SettingPage(self.driver)
         self.asana_setting_page.click_on_setting_button()
-        time.sleep(5)
+        time.sleep(7)
         self.asana_display = DisplayPage(self.driver)
         self.asana_display.change_to_dark_mode()
         self.check_mode = self.asana_display.dark_mode_is_displayed()
@@ -52,25 +52,5 @@ class Asana_non_functional_Test(unittest.TestCase):
         time.sleep(5)
         self.asana_display = DisplayPage(self.driver)
         self.asana_display.change_to_spanish_language()
-       # self.assertTrue(self.check_language)
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
+        self.check_language = self.asana_display.spanish_language_is_displayed()
+        self.assertTrue(self.check_language, "the language is't spanish")
