@@ -1,5 +1,5 @@
 from Infra.api_wrapper import APIWrapper
-from Logic.API_logic.api_gid import GetID
+from Infra.api_gid import GetID
 
 import random
 
@@ -16,9 +16,11 @@ class AsanaApiRequests:
         project_name = result["data"][0]["name"]
         return project_name
 
-    def get_asana_task_name_by_api(self):
-        result = self.api.get_data("tasks/1206935420617426")
+    def get_asana_task_name_by_api(self, gid):
+        task_gid = "tasks/"+ gid
+        result = self.api.get_data(task_gid)
         task_name = result["data"]["name"]
+        print(result)
         return task_name
 
     def create_new_task(self):
@@ -33,9 +35,10 @@ class AsanaApiRequests:
         delete_task = result["data"]
         return delete_task
 
-    def create_many_task(self):
-        for i in range(3):
-            self.create_new_task()
+
+
+
+
 
 
 
