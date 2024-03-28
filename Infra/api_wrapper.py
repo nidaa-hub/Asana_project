@@ -1,3 +1,10 @@
+import sys
+import os
+
+# Add the project directory to the Python path
+project_root = os.path.abspath(os.path.join(os.path.dirname(_file_), ".."))
+sys.path.insert(0, project_root)
+
 import requests
 import os
 from dotenv import load_dotenv
