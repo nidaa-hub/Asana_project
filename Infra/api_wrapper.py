@@ -2,7 +2,7 @@ import sys
 import os
 
 # Add the project directory to the Python path
-project_root = os.path.abspath(os.path.join(os.path.dirname(_file_), ".."))
+project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 sys.path.insert(0, project_root)
 
 import requests
