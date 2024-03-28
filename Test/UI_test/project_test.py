@@ -1,6 +1,6 @@
 import time
 import unittest
-
+from jirafile import JiraReport
 from Logic.UI_logic.home_page import HomePage
 from Utils.read_from_env import Credentials
 from Infra.browser_wrapper import BrowserWrapper
@@ -20,6 +20,16 @@ class Asana_Page_Test(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
+        if hasattr(self, '_outcome') and self._outcome.errors:
+            try:
+                # Assertion passed, report bug to Jira
+                jira_report = JiraReport()
+                issue_summary = "Test Assertion Failure"
+                issue_description = "Test failed due to assertion failure in non_functional_test"
+                jira_report.create_issue(issue_summary, issue_description)
+                print("Issue Created")
+            except Exception as e:
+                print("Failed to report bug to Jira:", str(e))
 
     def test_check_open_project_button(self):
         self.asana_home_page.click_on_profile_icon()

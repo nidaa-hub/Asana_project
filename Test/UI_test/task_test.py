@@ -7,6 +7,7 @@ from jirafile import JiraReport
 from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from Logic.UI_logic.projects_page import ProjectsPage
+from jirafile import JiraReport
 
 class Asana_Task_Test(unittest.TestCase):
     def setUp(self):
@@ -20,7 +21,7 @@ class Asana_Task_Test(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
-        '''     if hasattr(self, '_outcome') and self._outcome.errors:
+        if hasattr(self, '_outcome') and self._outcome.errors:
             try:
                 # Assertion passed, report bug to Jira
                 jira_report = JiraReport()
@@ -29,7 +30,7 @@ class Asana_Task_Test(unittest.TestCase):
                 jira_report.create_issue(issue_summary, issue_description)
                 print("Issue Created")
             except Exception as e:
-                print("Failed to report bug to Jira:", str(e))'''
+                print("Failed to report bug to Jira:", str(e))
 
     def test_change_task_priority(self):
         self.asana_home_page = HomePage(self.driver)
