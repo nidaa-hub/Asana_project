@@ -55,3 +55,9 @@ class Credentials:
         if jira_project_key is None:
             raise ValueError("jira project key environment variable is not set")
         return jira_project_key
+
+    def get_project_gid(self):
+        project_gid = os.getenv("PROJECT_GID")
+        if project_gid is None:
+            raise ValueError("asana project gid environment variable is not set")
+        return project_gid

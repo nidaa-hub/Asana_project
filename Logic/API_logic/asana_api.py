@@ -1,5 +1,7 @@
 from Infra.api_wrapper import APIWrapper
 from Infra.api_gid import GetID
+from Utils.read_from_env import Credentials
+
 
 import random
 
@@ -10,6 +12,8 @@ class AsanaApiRequests:
     def __init__(self):
         self.api = APIWrapper()
         self.new_gid = GetID()
+        self.data = Credentials()
+        self.project_gid = self.data.get_project_gid()
 
     def get_project_names(self):
         result = self.api.get_data("projects")
@@ -25,13 +29,14 @@ class AsanaApiRequests:
 
     def create_new_task(self):
         random_task = random.choice(self.daily_tasks)
-        data = {"data": {"projects": ["1206935539102605"], "name": random_task}}
+        data = {"data": {"projects": [self.project_gid], "name": random_task}}
         self.api.post_data("tasks", data)
         task_gid = self.new_gid.get_task_gid()
         return task_gid
 
-    def delete_specific_task(self):
-        result = self.api.delete_data("tasks/1206935420617426")
+    def delete_specific_task(self, gid):
+        task_gid = "tasks/" + gid
+        result = self.api.delete_data(task_gid)
         delete_task = result["data"]
         return delete_task
 

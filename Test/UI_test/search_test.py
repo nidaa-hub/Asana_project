@@ -3,12 +3,13 @@ import unittest
 
 from Infra.browser_wrapper import BrowserWrapper
 from Logic.UI_logic.home_page import HomePage
+from Logic.UI_logic.search_page import SearchPage
 from jirafile import JiraReport
 from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from Logic.UI_logic.projects_page import ProjectsPage
 
-class Asana_Task_Test(unittest.TestCase):
+class Asana_Search_Test(unittest.TestCase):
     def setUp(self):
         self.data = Credentials()
         self.browser = BrowserWrapper()
@@ -16,7 +17,6 @@ class Asana_Task_Test(unittest.TestCase):
         self.login = AsanaLogin(self.driver)
         self.login.asana_login_with_email()
         time.sleep(10)
-
 
     def tearDown(self):
         self.driver.quit()
@@ -31,9 +31,7 @@ class Asana_Task_Test(unittest.TestCase):
             except Exception as e:
                 print("Failed to report bug to Jira:", str(e))'''
 
-    def test_change_task_priority(self):
-        self.asana_home_page = HomePage(self.driver)
-        self.asana_home_page.click_on_project_button()
-        self.asana_project = ProjectsPage(self.driver)
-        self.asana_project.click_on_task()
-        self.asana_project.click_on_priority()
+    def test_search(self):
+        self.asana_search = SearchPage(self.driver)
+        self.asana_search.search_flow("hello")
+        self.assertIn("hello", self.asana_search.get_page_title(), "the title not show")

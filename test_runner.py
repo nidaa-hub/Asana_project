@@ -3,12 +3,16 @@ import unittest
 from concurrent.futures import ThreadPoolExecutor
 from Utils.config_loader import ConfigLoader
 from Test.UI_test.non_functional_test import Asana_non_functional_Test
+from Test.UI_test.task_test import Asana_Task_Test
+from Test.API_test.asana_api_test import MainTest
+from Test.API_test.section_test import SectionTest
+from Test.UI_test.task_test import Asana_Task_Test
 
 
-serial_cases = [Asana_non_functional_Test]
-parallel_cases = [Asana_non_functional_Test]
-test_cases = [Asana_non_functional_Test]
-demo_cases = [Asana_non_functional_Test]
+serial_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test]
+parallel_cases = [Asana_non_functional_Test,Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test]
+test_cases = [Asana_non_functional_Test,Asana_Task_Test, MainTest, SectionTest ,Asana_Task_Test]
+demo_cases = [Asana_non_functional_Test,Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test]
 
 
 def run_tests_for_browser(browser: str, test_case: Type[unittest.TestCase]):

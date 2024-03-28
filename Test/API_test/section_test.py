@@ -17,4 +17,3 @@ class SectionTest(unittest.TestCase):
             gid = self.api_logic.create_new_task()
             self.section.change_task_to_another_section(gid)
 
-
