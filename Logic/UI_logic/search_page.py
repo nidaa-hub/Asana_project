@@ -4,9 +4,10 @@ from selenium.webdriver.common.by import By
 from Infra.base_page import BasePage
 from selenium.webdriver.common.keys import Keys
 
+
 class SearchPage(BasePage):
 
-    SEARCH = "//div[@role='search']"
+    SEARCH = "//div[@aria-label='Search']"
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -14,6 +15,9 @@ class SearchPage(BasePage):
 
     def click_on_search(self):
         self.search_input.click()
+
+    def is_display_search_button(self):
+        return self.search_input.is_displayed()
 
     def fill_search_input(self, text):
         self.search_input.send_keys(text)
@@ -24,8 +28,5 @@ class SearchPage(BasePage):
     def search_flow(self, text):
         self.click_on_search()
         self.fill_search_input(text)
-
-        print("yess")
         self.press_enter_on_search_input()
-
-        print("yess")
+        return True

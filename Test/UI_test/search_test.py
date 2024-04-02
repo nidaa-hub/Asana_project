@@ -3,6 +3,7 @@ import unittest
 
 from Infra.browser_wrapper import BrowserWrapper
 from Logic.UI_logic.search_page import SearchPage
+from Logic.UI_logic.task_result import ResultPage
 from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from jirafile import JiraReport
@@ -32,5 +33,5 @@ class Asana_Search_Test(unittest.TestCase):
 
     def test_search(self):
         self.asana_search = SearchPage(self.driver)
-        self.asana_search.search_flow("hello")
-        self.assertIn("hello", self.asana_search.get_page_title(), "the title not show")
+        self.result = self.asana_search.search_flow("hello")
+        self.assertTrue(self.result, "the title not show")
