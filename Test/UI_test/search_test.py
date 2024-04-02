@@ -2,12 +2,11 @@ import time
 import unittest
 
 from Infra.browser_wrapper import BrowserWrapper
-from Logic.UI_logic.home_page import HomePage
 from Logic.UI_logic.search_page import SearchPage
-from jirafile import JiraReport
 from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from jirafile import JiraReport
+
 
 class Asana_Search_Test(unittest.TestCase):
     def setUp(self):
@@ -20,12 +19,12 @@ class Asana_Search_Test(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
-        if hasattr(self, '_outcome') and self._outcome.errors:
+        if not self._outcome.success:
             try:
                 # Assertion passed, report bug to Jira
                 jira_report = JiraReport()
                 issue_summary = "Test Assertion Failure"
-                issue_description = "Test failed due to assertion failure in non_functional_test"
+                issue_description = "Test failed due to assertion failure in test_search"
                 jira_report.create_issue(issue_summary, issue_description)
                 print("Issue Created")
             except Exception as e:

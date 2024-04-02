@@ -3,11 +3,11 @@ import unittest
 
 from Infra.browser_wrapper import BrowserWrapper
 from Logic.UI_logic.home_page import HomePage
-from jirafile import JiraReport
 from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from Logic.UI_logic.projects_page import ProjectsPage
 from jirafile import JiraReport
+
 
 class Asana_Task_Test(unittest.TestCase):
     def setUp(self):
@@ -18,15 +18,14 @@ class Asana_Task_Test(unittest.TestCase):
         self.login.asana_login_with_email()
         time.sleep(10)
 
-
     def tearDown(self):
         self.driver.quit()
-        if hasattr(self, '_outcome') and self._outcome.errors:
+        if not self._outcome.success:
             try:
                 # Assertion passed, report bug to Jira
                 jira_report = JiraReport()
                 issue_summary = "Test Assertion Failure"
-                issue_description = "Test failed due to assertion failure in non_functional_test"
+                issue_description = "Test failed due to assertion failure in test_change_task_priority"
                 jira_report.create_issue(issue_summary, issue_description)
                 print("Issue Created")
             except Exception as e:

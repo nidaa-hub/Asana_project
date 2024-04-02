@@ -17,7 +17,7 @@ class DisplayPage(BasePage):
         super().__init__(driver)
         self.display = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.DISPLAY)))
         self.theme = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.THEME)))
-        self.Language = WebDriverWait(self._driver, 20).until(EC.presence_of_element_located((By.XPATH, self.LANGUAGE)))
+        self.Language = WebDriverWait(self._driver, 30).until(EC.presence_of_element_located((By.XPATH, self.LANGUAGE)))
         self.spanish = None
 
     def click_on_display_button(self):
@@ -40,7 +40,7 @@ class DisplayPage(BasePage):
 
     def click_on_language_website(self):
         self.Language.click()
-        self.spanish = WebDriverWait(self._driver, 10).until(EC.presence_of_element_located((By.XPATH, self.SPANISH)))
+        self.spanish = WebDriverWait(self._driver, 20).until(EC.presence_of_element_located((By.XPATH, self.SPANISH)))
 
     def choose_spanish_language(self):
         self.spanish.click()

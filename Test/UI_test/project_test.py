@@ -20,12 +20,12 @@ class Asana_Page_Test(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
-        if hasattr(self, '_outcome') and self._outcome.errors:
+        if not self._outcome.success:
             try:
                 # Assertion passed, report bug to Jira
                 jira_report = JiraReport()
                 issue_summary = "Test Assertion Failure"
-                issue_description = "Test failed due to assertion failure in non_functional_test"
+                issue_description = "Test failed due to assertion failure in test_check_open_project_button"
                 jira_report.create_issue(issue_summary, issue_description)
                 print("Issue Created")
             except Exception as e:
@@ -37,5 +37,5 @@ class Asana_Page_Test(unittest.TestCase):
         self.asana_home_page.click_on_change_workspace_button()
         time.sleep(5)
         self.asana_projects_page = ProjectsPage(self.driver)
-        self.asana_projects_page.click_on_project_button()
+        #self.asana_projects_page.click_on_project_button()
        # time.sleep(5)

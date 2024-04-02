@@ -5,6 +5,7 @@ from Utils.read_from_env import Credentials
 
 import random
 
+
 class AsanaApiRequests:
 
     daily_tasks = ["Run", "Walk", "Sleep", "Eat", "Dance", "Pilates", "Read", "Work"]
@@ -21,10 +22,9 @@ class AsanaApiRequests:
         return project_name
 
     def get_asana_task_name_by_api(self, gid):
-        task_gid = "tasks/"+ gid
+        task_gid = "tasks/" + gid
         result = self.api.get_data(task_gid)
         task_name = result["data"]["name"]
-        print(result)
         return task_name
 
     def create_new_task(self):
@@ -34,18 +34,13 @@ class AsanaApiRequests:
         task_gid = self.new_gid.get_task_gid()
         return task_gid
 
+    def is_display_create_task(self, task_gid):
+        if task_gid:
+            return True
+        return False
+
     def delete_specific_task(self, gid):
         task_gid = "tasks/" + gid
         result = self.api.delete_data(task_gid)
         delete_task = result["data"]
         return delete_task
-
-
-
-
-
-
-
-
-
-

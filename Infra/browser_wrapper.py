@@ -29,14 +29,13 @@ class BrowserWrapper:
             options = self.set_up_capabilities(browser)
             self.driver = webdriver.Remote(command_executor=self.config["hub"], options=options)
         else:
-            options = self.create_options(browser)
 
             if browser.lower() == 'chrome':
-                self.driver = webdriver.Chrome(options=options)
+                self.driver = webdriver.Chrome()
             elif browser.lower() == 'firefox':
-                self.driver = webdriver.Firefox(options=options)
+                self.driver = webdriver.Firefox()
             elif browser.lower() == 'edge':
-                self.driver = webdriver.Edge(options=options)
+                self.driver = webdriver.Edge()
 
         url = self.config["url"]
         self.driver.get(url)
@@ -54,9 +53,6 @@ class BrowserWrapper:
         if options is not None:
             platform_name = self.config["platform"]
             options.add_argument(f'--platformName={platform_name}')
-            options.add_argument("--headless")
-            options.add_argument("--no-sandbox")
-            options.add_argument("--disable-dev-shm-usage")
             return options
         else:
             raise ValueError("Unsupported browser type")
