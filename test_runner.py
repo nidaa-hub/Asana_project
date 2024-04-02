@@ -6,12 +6,13 @@ from Test.UI_test.non_functional_test import Asana_non_functional_Test
 from Test.API_test.asana_api_test import MainTest
 from Test.API_test.section_test import SectionTest
 from Test.UI_test.task_test import Asana_Task_Test
+from Test.UI_test.search_test import Asana_Search_Test
 
 
-serial_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test]
-parallel_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test]
-test_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest,Asana_Task_Test]
-demo_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test]
+serial_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test, Asana_Search_Test]
+parallel_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test, Asana_Search_Test]
+test_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest,Asana_Task_Test, Asana_Search_Test]
+demo_cases = [Asana_non_functional_Test, Asana_Task_Test, MainTest, SectionTest, Asana_Task_Test, Asana_Search_Test]
 
 
 def run_tests_for_browser(browser: str, test_case: Type[unittest.TestCase]):
@@ -41,9 +42,8 @@ if __name__ == "__main__":
     grid_url = config["hub"]
     if is_parallel:
         run_tests_for_browser_parallel(browsers, parallel_cases)
-        run_tests_for_browser_serial(browsers, serial_cases)
     elif is_serial:
-        run_tests_for_browser_serial(browsers, test_cases)
-  #  else:
-   # run_tests_for_browser_serial(browsers, demo_cases)
+        run_tests_for_browser_serial(browsers, serial_cases)
+    else:
+        run_tests_for_browser_serial(browsers, demo_cases)
 
