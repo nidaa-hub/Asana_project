@@ -22,7 +22,7 @@ class Asana_non_functional_Test(unittest.TestCase):
 
     def tearDown(self):
         self.driver.quit()
-        if not self._outcome.success:
+        if self._outcome.success:
             try:
                 # Assertion passed, report bug to Jira
                 jira_report = JiraReport()

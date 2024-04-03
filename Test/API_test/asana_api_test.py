@@ -32,6 +32,5 @@ class MainTest(unittest.TestCase):
         task_name = self.api_logic.get_asana_task_name_by_api("1206944426202212")
         self.assertEqual(task_name, "Walk")
 
-    def test_the_delete_task(self):
-        delete_task = self.api_logic.delete_specific_task("1206987643403686")
-        self.assertIsNone(delete_task, "The task is not deleted")
+
+

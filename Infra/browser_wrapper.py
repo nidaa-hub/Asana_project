@@ -29,7 +29,6 @@ class BrowserWrapper:
             options = self.set_up_capabilities(browser)
             self.driver = webdriver.Remote(command_executor=self.config["hub"], options=options)
         else:
-
             if browser.lower() == 'chrome':
                 self.driver = webdriver.Chrome()
             elif browser.lower() == 'firefox':
