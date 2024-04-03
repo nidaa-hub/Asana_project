@@ -3,7 +3,6 @@ import unittest
 
 from Infra.browser_wrapper import BrowserWrapper
 from Logic.UI_logic.search_page import SearchPage
-from Logic.UI_logic.task_result import ResultPage
 from Utils.read_from_env import Credentials
 from Utils.asana_login import AsanaLogin
 from jirafile import JiraReport

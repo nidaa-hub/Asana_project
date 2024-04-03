@@ -33,5 +33,5 @@ class MainTest(unittest.TestCase):
         self.assertEqual(task_name, "Walk")
 
     def test_the_delete_task(self):
-        delete_task = self.api_logic.delete_specific_task("1206935420617438")
+        delete_task = self.api_logic.delete_specific_task("1206987643403686")
         self.assertIsNone(delete_task, "The task is not deleted")
